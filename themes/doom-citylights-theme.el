@@ -1,82 +1,81 @@
-;;; doom-one-theme.el --- inspired by Atom One Dark
+;;; doom-citylights-theme.el --- inspired by Atom One Dark
 (require 'doom-themes)
 
 ;;
-(defgroup doom-one-theme nil
+(defgroup doom-citylights-theme nil
   "Options for doom-themes"
   :group 'doom-themes)
 
-(defcustom doom-one-brighter-modeline nil
+(defcustom doom-citylights-brighter-modeline nil
   "If non-nil, more vivid colors will be used to style the mode-line."
-  :group 'doom-one-theme
+  :group 'doom-citylights-theme
   :type 'boolean)
 
-(defcustom doom-one-brighter-comments nil
+(defcustom doom-citylights-brighter-comments nil
   "If non-nil, comments will be highlighted in more vivid colors."
-  :group 'doom-one-theme
+  :group 'doom-citylights-theme
   :type 'boolean)
 
-(defcustom doom-one-comment-bg doom-one-brighter-comments
+(defcustom doom-citylights-comment-bg doom-citylights-brighter-comments
   "If non-nil, comments will have a subtle, darker background. Enhancing their
 legibility."
-  :group 'doom-one-theme
+  :group 'doom-citylights-theme
   :type 'boolean)
 
-(defcustom doom-one-padded-modeline nil
+(defcustom doom-citylights-padded-modeline nil
   "If non-nil, adds a 4px padding to the mode-line. Can be an integer to
 determine the exact padding."
-  :group 'doom-one-theme
+  :group 'doom-citylights-theme
   :type '(or integer boolean))
 
 ;;
-(def-doom-theme doom-one
+(def-doom-theme doom-citylights
   "A dark theme inspired by Atom One Dark"
 
   ;; name        default   256       16
-  ((bg         '("#282c34" nil       nil            ))
-   (bg-alt     '("#21242b" nil       nil            ))
-   (base0      '("#1B2229" "black"   "black"        ))
-   (base1      '("#1c1f24" "#1e1e1e" "brightblack"  ))
-   (base2      '("#202328" "#2e2e2e" "brightblack"  ))
-   (base3      '("#23272e" "#262626" "brightblack"  ))
-   (base4      '("#3f444a" "#3f3f3f" "brightblack"  ))
-   (base5      '("#5B6268" "#525252" "brightblack"  ))
-   (base6      '("#73797e" "#6b6b6b" "brightblack"  ))
-   (base7      '("#9ca0a4" "#979797" "brightblack"  ))
-   (base8      '("#DFDFDF" "#dfdfdf" "white"        ))
-   (fg         '("#bbc2cf" "#bfbfbf" "brightwhite"  ))
-   (fg-alt     '("#5B6268" "#2d2d2d" "white"        ))
+  ((bg         '("#181E24" nil       nil            ))
+   (bg-alt     '("#1D252C" nil       nil            ))
+   (base0      '("#11171D" "black"   "black"        ))
+   (base1      '("#212930" "#1e1e1e" "brightblack"  ))
+   (base2      '("#333F4A" "#2e2e2e" "brightblack"  ))
+   (base3      '("#3A4855" "#262626" "brightblack"  ))
+   (base4      '("#41505E" "#3f3f3f" "brightblack"  ))
+   (base5      '("#5F7487" "#525252" "brightblack"  ))
+   (base6      '("#718CA1" "#6b6b6b" "brightblack"  ))
+   (base7      '("#7997AD" "#979797" "brightblack"  ))
+   (base8      '("#CBD1E1" "#dfdfdf" "white"        ))
+   (fg         '("#B7C5D3" "#bfbfbf" "brightwhite"  ))
+   (fg-alt     '("#CBD1E1" "#2d2d2d" "white"        ))
 
    (grey       base4)
-   (red        '("#ff6c6b" "#ff6655" "red"          ))
-   (orange     '("#da8548" "#dd8844" "brightred"    ))
-   (green      '("#98be65" "#99bb66" "green"        ))
+   (red        '("#D95468" "#ff6655" "red"          ))
+   (orange     '("#D98E48" "#dd8844" "brightred"    ))
+   (green      '("#8BD49C" "#99bb66" "green"        ))
    (teal       '("#4db5bd" "#44b9b1" "brightgreen"  ))
-   (yellow     '("#ECBE7B" "#ECBE7B" "yellow"       ))
-   (blue       '("#51afef" "#51afef" "brightblue"   ))
-   (dark-blue  '("#2257A0" "#2257A0" "blue"         ))
-   (magenta    '("#c678dd" "#c678dd" "magenta"      ))
-   (violet     '("#a9a1e1" "#a9a1e1" "brightmagenta"))
-   (cyan       '("#46D9FF" "#46D9FF" "brightcyan"   ))
-   (dark-cyan  '("#5699AF" "#5699AF" "cyan"         ))
+   (yellow     '("#EBBF83" "#ECBE7B" "yellow"       ))
+   (blue       '("#5EC4FF" "#51afef" "brightblue"   ))
+   (dark-blue  '("#5C748E" "#2257A0" "blue"         ))
+   (magenta    '("#E27E8D" "#c678dd" "magenta"      ))
+   (violet     '("#B62D65" "#a9a1e1" "brightmagenta"))
+   (cyan       '("#70E1E8" "#46D9FF" "brightcyan"   ))
 
    ;; face categories -- required for all themes
    (highlight      blue)
-   (vertical-bar   (doom-darken base1 0.1))
+   (vertical-bar   (doom-darken base1 0.2))
    (selection      dark-blue)
-   (builtin        magenta)
-   (comments       (if doom-one-brighter-comments dark-cyan base5))
-   (doc-comments   (doom-lighten (if doom-one-brighter-comments dark-cyan base5) 0.25))
-   (constants      violet)
-   (functions      magenta)
+   (builtin        blue)
+   (comments       (if doom-citylights-brighter-comments dark-cyan base5))
+   (doc-comments   (doom-lighten (if doom-citylights-brighter-comments dark-cyan base5) 0.25))
+   (constants      red)
+   (functions      teal)
    (keywords       blue)
    (methods        cyan)
    (operators      blue)
    (type           yellow)
-   (strings        green)
-   (variables      (doom-lighten magenta 0.4))
-   (numbers        orange)
-   (region         `(,(doom-lighten (car bg-alt) 0.15) ,@(doom-lighten (cdr base0) 0.35)))
+   (strings        base7)
+   (variables      base8)
+   (numbers        magenta)
+   (region         base2)
    (error          red)
    (warning        yellow)
    (success        green)
@@ -86,10 +85,10 @@ determine the exact padding."
 
    ;; custom categories
    (hidden     `(,(car bg) "black" "black"))
-   (-modeline-bright doom-one-brighter-modeline)
+   (-modeline-bright doom-citylights-brighter-modeline)
    (-modeline-pad
-    (when doom-one-padded-modeline
-      (if (integerp doom-one-padded-modeline) doom-one-padded-modeline 4)))
+    (when doom-citylights-padded-modeline
+      (if (integerp doom-citylights-padded-modeline) doom-citylights-padded-modeline 4)))
 
    (modeline-fg     nil)
    (modeline-fg-alt base5)
@@ -109,14 +108,12 @@ determine the exact padding."
   ;; --- extra faces ------------------------
   ((elscreen-tab-other-screen-face :background "#353a42" :foreground "#1e2022")
 
-   (evil-goggles-default-face :inherit 'region :background (doom-blend region bg 0.5))
-
    ((line-number &override) :foreground base4)
    ((line-number-current-line &override) :foreground fg)
 
    (font-lock-comment-face
     :foreground comments
-    :background (if doom-one-comment-bg (doom-lighten bg 0.05)))
+    :background (if doom-citylights-comment-bg (doom-lighten bg 0.05)))
    (font-lock-doc-face
     :inherit 'font-lock-comment-face
     :foreground doc-comments)
@@ -161,4 +158,4 @@ determine the exact padding."
   ;; ()
   )
 
-;;; doom-one-theme.el ends here
+;;; doom-citylights-theme.el ends here
