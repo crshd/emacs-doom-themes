@@ -29,7 +29,7 @@ determine the exact padding."
   :type '(or integer boolean))
 
 ;;
-(def-doom-theme doom-one
+(def-doom-theme doom-iceberg
   "A dark theme inspired by Atom One Dark"
 
   ;; name        default   256       16
